@@ -1,0 +1,17 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\VideoPoker\Scripts\HomeScript\LevelManager.cs">
+    <Files>
+      <File FileName="Assets\VideoPoker\Scripts\HomeScript\LevelManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\VideoPoker\Scripts\Service\LeaderboardController.cs" Line="1" Column="1" />
+      <File FileName="Assets\VideoPoker\Scripts\DataManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\DailyRewardInternetTime\scripts\DailyEvent.cs" Line="1" Column="1" />
+      <File FileName="Assets\DailyRewardInternetTime\scripts\TimeManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\VideoPoker\Scripts\Service\AdManagerUnity.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
