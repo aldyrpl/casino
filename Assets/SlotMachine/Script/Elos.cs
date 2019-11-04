@@ -74,9 +74,10 @@ namespace Elona.Slot {
 			{
 				if(DataManager.Instance.Coins<5)
 				{
-					Finger.SetActive (true);
-					OverlayMoney.SetActive (true);
-					checktut = true;
+					//Finger.SetActive (true);
+					//OverlayMoney.SetActive (true);
+					//checktut = true;
+                    // coin habis
 				}
 				SoundController.Sound.Beep ();
 				return;

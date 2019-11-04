@@ -176,8 +176,14 @@ namespace CSFramework {
 					case IntroType.Demo:
 						sequence.Join(slot.effects.IlluminateLines(duration + holders.Count*delay));
 						foreach (SymbolHolder holder in holders) {
-							sequence.Join(holder.transform.DORotate(rotation, duration*0.5f, RotateMode.FastBeyond360).SetEase(rotationEase).SetLoops(2, LoopType.Yoyo).SetDelay(delay));
-							sequence.Join(holder.transform.DOPunchScale(new Vector2(1f, 1f), duration, vibrato, elasticity).SetEase(rotationEase).SetDelay(delay));
+							sequence.Join(holder.transform.DORotate(rotation, duration*0.5f, RotateMode.FastBeyond360).SetEase(rotationEase).SetLoops(2, LoopType.Yoyo).SetDelay(delay)).OnComplete(()=> {
+                                Debug.Log("Rotate Finish");
+                            });
+							sequence.Join(holder.transform.DOPunchScale(new Vector2(1f, 1f), duration, vibrato, elasticity).SetEase(rotationEase).SetDelay(delay)).
+                                OnComplete(()=> {
+                                    Debug.Log("Finish Punchs");
+                                    
+                                });
 						}
 						break;
 				}

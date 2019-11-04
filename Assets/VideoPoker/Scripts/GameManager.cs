@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour {
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (scene.name == "HomeScene") {
-            Debug.Log("on Update Username : "+DataManager.Instance.dataUser.name);
+          //  Debug.Log("on Update Username : "+DataManager.Instance.dataUser.name);
             if (onUpdateUsername != null) {
                 onUpdateUsername(DataManager.Instance.dataUser.name);
             }

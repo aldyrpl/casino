@@ -36,13 +36,22 @@ namespace Elona.Slot {
 			slot.callbacks.onAddBalance.AddListener(OnAddBalance);
 			lastBalance = slot.gameInfo.balance;
 			elos.bonusGame.gameObject.SetActive(false);
-		}
+
+            //default line enable
+            for (int i = 0; i < 8; i++)
+            {
+                slot.lineManager.EnableNextLine();
+            }
+
+
+        }
 
 		public override void OnActivated() {
 			base.OnActivated();
 			if (!slot.debug.skipIntro) {
 				SoundController.Sound.Intro ();
 					assets.tweens.tsIntro1.Play ();
+                
 			}
 		}
 
@@ -86,7 +95,6 @@ namespace Elona.Slot {
 		public override void DisableCurrentLine() {
 			if (!slot.lineManager.DisableCurrentLine ()) 
 				SoundController.Sound.Beep ();
-			
 			else {
 				SoundController.Sound.Bet ();
 
