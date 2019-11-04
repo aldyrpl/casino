@@ -24,6 +24,7 @@ public class HomePopup : MonoBehaviour
     {
         NetworkManager.onLogin += UpdateUserData;
         GameManager.onUpdateUsername += SetUsername;
+        DataManager.CoinsUpdated += DataManager_CoinsUpdated;
     }
     void Update()
 	{
@@ -87,9 +88,14 @@ public class HomePopup : MonoBehaviour
         username.text = DataManager.Instance.dataUser.name;
         CoinTex.text = DataManager.Instance.Coins.ToString();
     }
+    private void DataManager_CoinsUpdated(int jumlahCoin)
+    {
+        CoinTex.text = jumlahCoin.ToString();
+    }
     private void OnDestroy()
     {
         NetworkManager.onLogin -= UpdateUserData;
         GameManager.onUpdateUsername -= SetUsername;
+        DataManager.CoinsUpdated -= DataManager_CoinsUpdated;
     }
 }

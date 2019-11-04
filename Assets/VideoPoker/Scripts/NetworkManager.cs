@@ -138,7 +138,32 @@ public class NetworkManager : MonoBehaviour {
         });
         
     }
-    
+    public void DailyCoinReward(DailyReward.RewardClick rewardClick)
+    {
+        var usersRoute = URL_API + "daily_coin_reward";
+        int dailyCoinReward = 0;
+        RestClient.Get<DailyCoin>(usersRoute).Then(response => {
+
+            //cek apakah sukses login = 0 gagal, 1 = success
+            if (response.success == "1")
+            {
+                rewardClick(response.daily_coin_reward);
+                // Debug.Log("Daily coin : "+response.daily_coin_reward);
+                dailyCoinReward = response.daily_coin_reward;
+
+            }
+            else
+            {
+                rewardClick(DataManager.Instance.DailyCoin);
+                Debug.Log("daily coin Error");
+                Debug.Log("response :" + response);
+            }
+        });
+
+
+
+    }
+
     public class User
     {
         public int user_id;
@@ -147,5 +172,10 @@ public class NetworkManager : MonoBehaviour {
         public string email;
         public string success;
         public string coin;
+    }
+    public class DailyCoin
+    {
+        public int daily_coin_reward;
+        public string success;
     }
 }
