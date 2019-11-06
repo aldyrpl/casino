@@ -30,10 +30,13 @@ public class DailyReward : MonoBehaviour {
 	Animator dailyRewardAnimator;
 	public int minRewardCoinValue = 20;
 	public int maxRewardCoinValue = 50;
-//	private int LastNotificationId = 0;
+    //	private int LastNotificationId = 0;
+
+    public delegate void RewardClick(int data);
+    public static RewardClick rewardclick;
 
 
-	void Awake()
+    void Awake()
 	{
 		LocalNotification.ClearNotifications();
 	}
@@ -178,19 +181,22 @@ private void _configTimerSettings()
 	//trggered on button click
 	public void rewardClicked()
 	{
-		if (timeLabel.text == "CLAIM") {
-//			Debug.Log ("==> Claim Button Clicked");
-			PlayerPrefs.SetString ("_timer", "Standby");
-			StartCoroutine ("CheckTime");
-			dailyRewardAnimator.SetBool ("deactivate", true);
-			dailyRewardAnimator.SetBool ("activate", false);
-			SoundController.Sound.ClickBtn ();
-			float value = UnityEngine.Random.value;
-			int reward = GetRandomRewardCoins ();
-			int roundedReward = (reward / 5) * 5;
-			ShowRewardUI (roundedReward);
-		}
-	}
+        if (timeLabel.text == "CLAIM")
+        {
+            //			Debug.Log ("==> Claim Button Clicked");
+            PlayerPrefs.SetString("_timer", "Standby");
+            StartCoroutine("CheckTime");
+            dailyRewardAnimator.SetBool("deactivate", true);
+            dailyRewardAnimator.SetBool("activate", false);
+            SoundController.Sound.ClickBtn();
+
+            //Request jumlah coin harian dari server
+            NetworkManager._instance.DailyCoinReward((reward) => {
+                ShowRewardUI(reward);
+            });
+
+        }
+    }
 
 
 

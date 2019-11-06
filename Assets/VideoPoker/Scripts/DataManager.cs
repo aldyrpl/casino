@@ -17,6 +17,11 @@ public class DataManager : MonoBehaviour
 		get { return _freeadnum; }
 		private set { _freeadnum = value; }
 	}
+    public int DailyCoin
+    {
+        get { return dailyCoin; }
+        private set { dailyCoin = value; }
+    }
     public NetworkManager.User dataUser { get; set; }
 
     public static event Action<int> CoinsUpdated = delegate {};
@@ -30,7 +35,10 @@ public class DataManager : MonoBehaviour
 	//	const string COINSGAMESTRING = "coins";
 	[SerializeField]
 	int initialFreeAdNumber = 10;
-	[SerializeField]
+    //Terupdate dari server saat user click claim reward
+    [SerializeField]
+    int dailyCoin;
+    [SerializeField]
 	int _freeadnum;
 	void Awake()
 	{

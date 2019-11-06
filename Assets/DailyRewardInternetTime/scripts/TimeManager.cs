@@ -6,8 +6,9 @@ using UnityEngine;
 public class TimeManager : MonoBehaviour {
 
 	public static TimeManager sharedInstance = null;
-	private string _url = "https://unitydeveloperhosting2018info.000webhostapp.com/timespan.php"; //change this to your own
-	private string _timeData;
+    //private string _url = "http://localhost/timespan/timespan.php"; //change this to your own
+    private string _url = "https://pialaslot.000webhostapp.com/timespan.php"; //change this to your own
+    private string _timeData;
 	private string _currentTime;
 	private string _currentDate;
 
